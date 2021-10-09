@@ -28,4 +28,9 @@ public class ProdutorRuralServiceImpl extends CrudService<ProdutorRural, Long> i
         Pageable pageable = PageRequest.of(0, 20);
         return data.findAllByCpfContainingOrNomeContainingOrEmailContaining(pesquisa, pesquisa, pesquisa, pageable);
     }
+
+    @Override
+    public List<ProdutorRural> findAllByDeletado() {
+        return data.findAllByDeletadoFalse();
+    }
 }

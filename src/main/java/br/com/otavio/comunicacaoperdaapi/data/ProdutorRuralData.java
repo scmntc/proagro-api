@@ -11,4 +11,6 @@ public interface ProdutorRuralData extends JpaRepository<ProdutorRural, Long> {
 
     @Transactional(readOnly = true)
     List<ProdutorRural> findAllByCpfContainingOrNomeContainingOrEmailContaining(String cpf, String nome, String email, Pageable pageable);
+
+    List<ProdutorRural> findAllByDeletadoFalse();
 }

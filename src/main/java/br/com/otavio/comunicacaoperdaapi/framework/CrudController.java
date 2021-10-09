@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @CrossOrigin
-public abstract class CrudController<T, ID extends Serializable> implements ICrudController<T, ID> {
+public abstract class CrudController<T extends GenericModel, ID extends Serializable> implements ICrudController<T, ID> {
 
     protected abstract ICrudService<T, ID> service();
 
@@ -24,8 +24,20 @@ public abstract class CrudController<T, ID extends Serializable> implements ICru
     }
 
     @Override
+    @DeleteMapping(params = "id", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteById(@RequestParam("id") ID id) {
+        T entity = this.findById(id);
+        entity.setDeletado(Boolean.TRUE);
+        save(entity);
+    }
+
+    @Override
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<T> findAll() {
-        return service().findAll();
+        try {
+            return service().findAllByDeletado();
+        } catch (Exception e) {
+            return service().findAll();
+        }
     }
 }

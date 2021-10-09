@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ComunicacaoPerdaServiceImpl extends CrudService<ComunicacaoPerda, Long> implements ComunicacaoPerdaService {
 
@@ -17,5 +19,10 @@ public class ComunicacaoPerdaServiceImpl extends CrudService<ComunicacaoPerda, L
     @Override
     protected JpaRepository<ComunicacaoPerda, Long> data() {
         return data;
+    }
+
+    @Override
+    public List<ComunicacaoPerda> findAllByDeletado() {
+        return data.findAllByDeletadoFalse();
     }
 }

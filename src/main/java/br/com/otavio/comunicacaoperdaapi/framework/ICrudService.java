@@ -14,4 +14,6 @@ public interface ICrudService<T, ID extends Serializable> {
 
     List<T> findAll();
 
+    List<T> findAllByDeletado();
+
 }

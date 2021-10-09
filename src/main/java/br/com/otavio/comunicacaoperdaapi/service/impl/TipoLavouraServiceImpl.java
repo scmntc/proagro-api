@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TipoLavouraServiceImpl extends CrudService<TipoLavoura, Long> implements TipoLavouraService {
 
@@ -20,5 +22,10 @@ public class TipoLavouraServiceImpl extends CrudService<TipoLavoura, Long> imple
     @Override
     protected JpaRepository<TipoLavoura, Long> data() {
         return data;
+    }
+
+    @Override
+    public List<TipoLavoura> findAllByDeletado() {
+        return data.findAllByDeletadoFalse();
     }
 }

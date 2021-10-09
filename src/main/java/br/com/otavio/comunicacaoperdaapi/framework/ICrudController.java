@@ -10,4 +10,6 @@ public interface ICrudController<T, ID extends Serializable> {
     T findById(ID id);
 
     List<T> findAll();
+
+    void deleteById(ID id);
 }
