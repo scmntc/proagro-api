@@ -24,7 +24,6 @@ public class ProdutorRural extends GenericModel implements Serializable {
     @Column(nullable = false)
     private String email;
 
-    @CPF
     @Column(nullable = false)
     private String cpf;
 }

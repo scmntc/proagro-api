@@ -1,11 +1,8 @@
 package br.com.otavio.comunicacaoperdaapi.service.impl;
 
-import br.com.otavio.comunicacaoperdaapi.data.ProdutorRuralData;
 import br.com.otavio.comunicacaoperdaapi.data.TipoLavouraData;
 import br.com.otavio.comunicacaoperdaapi.framework.CrudService;
-import br.com.otavio.comunicacaoperdaapi.model.ProdutorRural;
 import br.com.otavio.comunicacaoperdaapi.model.TipoLavoura;
-import br.com.otavio.comunicacaoperdaapi.service.ProdutorRuralService;
 import br.com.otavio.comunicacaoperdaapi.service.TipoLavouraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

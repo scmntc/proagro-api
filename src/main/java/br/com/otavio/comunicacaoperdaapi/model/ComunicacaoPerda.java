@@ -28,13 +28,15 @@ public class ComunicacaoPerda extends GenericModel implements Serializable {
     @Column(name = "datacolheita")
     private LocalDate dataColheita;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    private String latitude;
+
+    @Column(nullable = false)
+    private String longitude;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idlavoura", foreignKey = @ForeignKey(name = "FK_TipoLavoura_ComunicacaoPerda"), nullable = false)
     private TipoLavoura tipoLavoura;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idlocalizacao", foreignKey = @ForeignKey(name = "FK_LocalizacaoLavoura_ComunicacaoPerda"), nullable = false)
-    private LocalizacaoLavoura localizacaoLavoura;
 
 
 }

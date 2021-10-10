@@ -26,7 +26,7 @@ public class ProdutorRuralServiceImpl extends CrudService<ProdutorRural, Long> i
     @Override
     public List<ProdutorRural> findAutoComplete(String pesquisa) {
         Pageable pageable = PageRequest.of(0, 20);
-        return data.findAllByCpfContainingOrNomeContainingOrEmailContaining(pesquisa, pesquisa, pesquisa, pageable);
+        return data.findAllByDeletadoFalseAndCpfContainingOrNomeContainingOrEmailContaining(pesquisa, pesquisa, pesquisa, pageable);
     }
 
     @Override
