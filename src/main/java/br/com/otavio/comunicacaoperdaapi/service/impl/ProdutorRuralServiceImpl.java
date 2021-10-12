@@ -31,6 +31,6 @@ public class ProdutorRuralServiceImpl extends CrudService<ProdutorRural, Long> i
 
     @Override
     public List<ProdutorRural> findAllByDeletado() {
-        return data.findAllByDeletadoFalse();
+        return data.findAllByDeletadoFalseOrderByIdDesc();
     }
 }

@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Data
 public class ComunicacaoPerda extends GenericModel implements Serializable {
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idprodutorrural", foreignKey = @ForeignKey(name = "FK_ProdutorRural_ComunicacaoPerda"), nullable = false)
     private ProdutorRural produtorRural;
 

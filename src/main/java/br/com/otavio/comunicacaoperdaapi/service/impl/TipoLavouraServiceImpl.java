@@ -3,6 +3,7 @@ package br.com.otavio.comunicacaoperdaapi.service.impl;
 import br.com.otavio.comunicacaoperdaapi.data.TipoLavouraData;
 import br.com.otavio.comunicacaoperdaapi.framework.CrudService;
 import br.com.otavio.comunicacaoperdaapi.model.TipoLavoura;
+import br.com.otavio.comunicacaoperdaapi.service.ComunicacaoPerdaService;
 import br.com.otavio.comunicacaoperdaapi.service.TipoLavouraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +17,8 @@ public class TipoLavouraServiceImpl extends CrudService<TipoLavoura, Long> imple
     @Autowired
     private TipoLavouraData data;
 
+    @Autowired private ComunicacaoPerdaService comunicacaoPerdaService;
+
     @Override
     protected JpaRepository<TipoLavoura, Long> data() {
         return data;
@@ -23,6 +26,6 @@ public class TipoLavouraServiceImpl extends CrudService<TipoLavoura, Long> imple
 
     @Override
     public List<TipoLavoura> findAllByDeletado() {
-        return data.findAllByDeletadoFalse();
+        return data.findAllTipoLavouraAtiva();
     }
 }
